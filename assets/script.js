@@ -1,49 +1,63 @@
 var quizContentEl = document.querySelector("#quiz");
 
 // Questions
-var questionArray = [
-    "What event listener did I just use to start this quiz?",
-    "Why?",
-    "How?",
-    "q4",
-    "q5",
-    "q6",
-    "q7",
-    "q8",
-    "q9",
-    "q10"
-];
+var questionArray = [{
+    text: "Question 1",
+    answers: ["a","b","c"]
+},
+{
+    text: "Question 2",
+    answers: ["d","e","f"]
+},
+{
 
-var answerArray = [
-    ["Hi", "Hello", "Yep", "Indeed"],
-    ["1", "2", "3", "4"],
-    ["3"],
-    ["4"],
-    ["5"],
-    ["6"],
-    ["7"],
-    ["8"],
-    ["9"],
-    ["10"]
-];
+    text: "Question 3",
+    answers: ["g","h","i"]
+},
+{
+    text: "Question 4",
+    answers: ["j","k","l"]
+},
+{
+    text: "Question 5",
+    answers: ["m","n","o"]
+}];
+    
 
-var listQuestions = function(event) {
-    document.getElementById("questionSlot").innerHTML = questionArray[0];
+// Questions
+var listQuestions = function() {
+
+    
+    for (i = 0; i < questionArray.length; i++)
+
+    if (i < questionArray.length) {
+
+        document.getElementById("questionSlot").innerHTML = questionArray[i].text;
+    };
+    
+};
+
+
+// Answers
+var listAnswers = function() { 
+
+   
+    for (i = 0; i < questionArray.length; i++) {
+    document.getElementById("answers").innerHTML = questionArray[i].answers;
+    }
 }
 
-var listAnswers = function(event) {
-    var listAnswers = document.createElement("button");   
-    document.getElementById("answers").innerHTML = answerArray[0];
-}
 
+// Start Quiz
 var beginQuiz = function(event) {
 
     // Deletes Start Button At Quiz Start
     var removeStart = document.getElementById("startButton");
         removeStart.remove();
-    
-    listAnswers();
+
     listQuestions();
+    listAnswers();
+    
 };
 
 

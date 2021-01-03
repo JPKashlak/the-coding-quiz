@@ -23,3 +23,7 @@ main button:hover {
     grid-column: 1;
     gap: 10px;
 }
+.questionFont {
+    background-color: purple;
+    color: whitesmoke;
+}
