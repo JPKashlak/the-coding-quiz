@@ -12,23 +12,40 @@ var questionArray = [
     "q8",
     "q9",
     "q10"
-    // answers: ["Click", "Drag", "Hover", "Sing"],
-    // solution: [true, false, false, false],
-
 ];
 
+var answerArray = [
+    ["Hi", "Hello", "Yep", "Indeed"],
+    ["1", "2", "3", "4"],
+    ["3"],
+    ["4"],
+    ["5"],
+    ["6"],
+    ["7"],
+    ["8"],
+    ["9"],
+    ["10"]
+];
+
+var listQuestions = function(event) {
+    document.getElementById("questionSlot").innerHTML = questionArray[0];
+}
+
+var listAnswers = function(event) {
+    var listAnswers = document.createElement("button");   
+    document.getElementById("answers").innerHTML = answerArray[0];
+}
 
 var beginQuiz = function(event) {
-    console.log(event);
 
     // Deletes Start Button At Quiz Start
     var removeStart = document.getElementById("startButton");
         removeStart.remove();
-
-    document.getElementById("questionSlot").innerHTML = questionArray[0];
     
-
-
+    listAnswers();
+    listQuestions();
 };
 
+
+// Event Listeners
 quizContentEl.addEventListener("click", beginQuiz);

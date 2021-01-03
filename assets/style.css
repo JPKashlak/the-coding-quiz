@@ -17,3 +17,9 @@ main button {
 main button:hover {
     background-color: rgb(10, 190, 166);
 } 
+#quiz {
+    display: grid;
+    grid-row: 3;
+    grid-column: 1;
+    gap: 10px;
+}
