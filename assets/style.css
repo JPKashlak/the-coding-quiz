@@ -19,11 +19,9 @@ main button:hover {
 } 
 #quiz {
     display: grid;
-    grid-row: 3;
+    grid-row: 6;
     grid-column: 1;
     gap: 10px;
 }
-.questionFont {
-    background-color: purple;
-    color: whitesmoke;
+#answerButton1, #answerButton2, #answerButton3 {
 }

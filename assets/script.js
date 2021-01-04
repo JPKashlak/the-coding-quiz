@@ -1,4 +1,4 @@
-var quizContentEl = document.querySelector("#quiz");
+var quizContentEl = document.querySelector("#startButton");
 
 // Questions
 var questionArray = [{
@@ -24,26 +24,37 @@ var questionArray = [{
 }];
     
 
-// Questions
+// List Questions
 var listQuestions = function() {
+  
+    for (i = 0; i < questionArray.length; i++) {
+        document.getElementById("questionSlot").innerHTML = questionArray[i].text; 
+        listQuestions
 
     
-    for (i = 0; i < questionArray.length; i++)
-
-    if (i < questionArray.length) {
-
-        document.getElementById("questionSlot").innerHTML = questionArray[i].text;
-    };
+    }
     
-};
+}
 
 
-// Answers
+// List Possible Answers
 var listAnswers = function() { 
 
-   
     for (i = 0; i < questionArray.length; i++) {
-    document.getElementById("answers").innerHTML = questionArray[i].answers;
+        if (i < questionArray.length){
+        var button1 = document.getElementById("answerButton1").innerHTML = questionArray[i].answers[0];
+            
+        var button2 = document.getElementById("answerButton2").innerHTML = questionArray[i].answers[1];
+           
+        var button3 = document.getElementById("answerButton3").innerHTML = questionArray[i].answers[2];
+        }
+        else {
+            
+        }
+        
+        // var buttonsEl = getElementById("answerButton1");
+        //     buttonsEl.appendChild("answer1");
+            
     }
 }
 
@@ -51,9 +62,8 @@ var listAnswers = function() {
 // Start Quiz
 var beginQuiz = function(event) {
 
-    // Deletes Start Button At Quiz Start
-    var removeStart = document.getElementById("startButton");
-        removeStart.remove();
+    // Changes Start Button At Quiz Start
+    var changeStart = document.getElementById("startButton").innerHTML = "Restart";
 
     listQuestions();
     listAnswers();
