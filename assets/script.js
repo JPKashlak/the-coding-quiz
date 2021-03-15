@@ -2,6 +2,7 @@ var questionSlot = document.getElementById("question");
 var a1 = document.getElementById("answer1");
 var a2 = document.getElementById("answer2");
 var a3 = document.getElementById("answer3");
+var timer = document.getElementById("timer");
 
 // Questions
 var questionArray = [
@@ -44,6 +45,7 @@ var questionArray = [
 ];
 
 let currentQuestion = 0;
+let time = 60;
 
 function quiz() {
     var question = questionArray[currentQuestion];
@@ -53,4 +55,16 @@ function quiz() {
     a3.innerHTML = question.answer3; 
 }
 
-quiz()
+
+function beginQuiz(){
+    setInterval(function() {
+      timer.innerHTML= time;
+        time--;
+    }, 
+    1000); 
+
+    quiz();
+}
+
+
+beginQuiz()
