@@ -1,62 +1,74 @@
 var quizContentEl = document.querySelector("#startButton");
 
 // Questions
-var questionArray = [{
+var questionArray = [];
+var questions = [{
     text: "Question 1",
-    answers: ["a","b","c"]
+    answer1: "a",
+    answer2: "b",
+    answer3: "c",
+    solution: ""
 },
 {
     text: "Question 2",
-    answers: ["d","e","f"]
+    answer1: "d",
+    answer2: "e",
+    answer3: "f",
+    solution: ""
 },
 {
 
     text: "Question 3",
-    answers: ["g","h","i"]
+    answer1: "g",
+    answer2: "h",
+    answer3: "i",
+    solution: ""
 },
 {
     text: "Question 4",
-    answers: ["j","k","l"]
+    answer1: "j",
+    answer2: "k",
+    answer3: "l",
+    solution: ""
 },
 {
     text: "Question 5",
-    answers: ["m","n","o"]
+    answer1: "m",
+    answer2: "n",
+    answer3: "o",
+    solution: ""
 }];
     
 
 // List Questions
-var listQuestions = function() {
-  
-    for (i = 0; i < questionArray.length; i++) {
-        document.getElementById("questionSlot").innerHTML = questionArray[i].text; 
-        listQuestions
-
-    
-    }
-    
+var listQuestions = function() {  
+       var questionLister = document.getElementById("questionSlot").innerHTML = questions.text;    
 }
 
 
 // List Possible Answers
 var listAnswers = function() { 
 
-    for (i = 0; i < questionArray.length; i++) {
-        if (i < questionArray.length){
-        var button1 = document.getElementById("answerButton1").innerHTML = questionArray[i].answers[0];
-            
-        var button2 = document.getElementById("answerButton2").innerHTML = questionArray[i].answers[1];
-           
-        var button3 = document.getElementById("answerButton3").innerHTML = questionArray[i].answers[2];
-        }
-        else {
-            
-        }
+    
         
-        // var buttonsEl = getElementById("answerButton1");
-        //     buttonsEl.appendChild("answer1");
+    var answerButtons = document.querySelectorAll("answerButton");    
+    // for (i = 0; i < questions.length; i++){
+    //     answerButtons[i].style.display = "block";
+    // };
+
+    for (i = 0; i < questions.length; i++) {
+        
+        var button1 = document.getElementById("answerButton1").innerHTML = questions[i].answer1;
+            
+        var button2 = document.getElementById("answerButton2").innerHTML = questions[i].answer2;
+           
+        var button3 = document.getElementById("answerButton3").innerHTML = questions[i].answer3;
+        
+    }  
+        // buttonsEl.appendChild("");
             
     }
-}
+
 
 
 // Start Quiz
@@ -73,3 +85,4 @@ var beginQuiz = function(event) {
 
 // Event Listeners
 quizContentEl.addEventListener("click", beginQuiz);
+

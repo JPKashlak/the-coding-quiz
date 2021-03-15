@@ -23,5 +23,6 @@ main button:hover {
     grid-column: 1;
     gap: 10px;
 }
-#answerButton1, #answerButton2, #answerButton3 {
+.answerButton {
+    /* display: none; */
 }
