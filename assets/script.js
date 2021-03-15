@@ -1,20 +1,23 @@
-var quizContentEl = document.querySelector("#startButton");
+var questionSlot = document.getElementById("question");
+var a1 = document.getElementById("answer1");
+var a2 = document.getElementById("answer2");
+var a3 = document.getElementById("answer3");
 
 // Questions
-var questionArray = [];
-var questions = [{
+var questionArray = [
+{
     text: "Question 1",
     answer1: "a",
     answer2: "b",
     answer3: "c",
-    solution: ""
+    solution: 1
 },
 {
     text: "Question 2",
     answer1: "d",
     answer2: "e",
     answer3: "f",
-    solution: ""
+    solution: 3
 },
 {
 
@@ -22,67 +25,32 @@ var questions = [{
     answer1: "g",
     answer2: "h",
     answer3: "i",
-    solution: ""
+    solution: 3
 },
 {
     text: "Question 4",
     answer1: "j",
     answer2: "k",
     answer3: "l",
-    solution: ""
+    solution: 2
 },
 {
     text: "Question 5",
     answer1: "m",
     answer2: "n",
     answer3: "o",
-    solution: ""
-}];
-    
+    solution: 3
+}
+];
 
-// List Questions
-var listQuestions = function() {  
-       var questionLister = document.getElementById("questionSlot").innerHTML = questions.text;    
+let currentQuestion = 0;
+
+function quiz() {
+    var question = questionArray[currentQuestion];
+    questionSlot.innerText = question.text;
+    a1.innerHTML = question.answer1;
+    a2.innerHTML = question.answer2;
+    a3.innerHTML = question.answer3; 
 }
 
-
-// List Possible Answers
-var listAnswers = function() { 
-
-    
-        
-    var answerButtons = document.querySelectorAll("answerButton");    
-    // for (i = 0; i < questions.length; i++){
-    //     answerButtons[i].style.display = "block";
-    // };
-
-    for (i = 0; i < questions.length; i++) {
-        
-        var button1 = document.getElementById("answerButton1").innerHTML = questions[i].answer1;
-            
-        var button2 = document.getElementById("answerButton2").innerHTML = questions[i].answer2;
-           
-        var button3 = document.getElementById("answerButton3").innerHTML = questions[i].answer3;
-        
-    }  
-        // buttonsEl.appendChild("");
-            
-    }
-
-
-
-// Start Quiz
-var beginQuiz = function(event) {
-
-    // Changes Start Button At Quiz Start
-    var changeStart = document.getElementById("startButton").innerHTML = "Restart";
-
-    listQuestions();
-    listAnswers();
-    
-};
-
-
-// Event Listeners
-quizContentEl.addEventListener("click", beginQuiz);
-
+quiz()
