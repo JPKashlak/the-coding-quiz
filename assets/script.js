@@ -7,39 +7,39 @@ var timer = document.getElementById("timer");
 // Questions
 var questionArray = [
 {
-    text: "Question 1",
-    answer1: "a",
-    answer2: "b",
-    answer3: "c",
-    solution: 1
+    text: "Which of the following is NOT a JavaScript data type?",
+    answer1: "Boolean",
+    answer2: "Array",
+    answer3: "String",
+    solution: 2
 },
 {
-    text: "Question 2",
-    answer1: "d",
-    answer2: "e",
-    answer3: "f",
+    text: "Which company developed JavaScript?",
+    answer1: "Oracle",
+    answer2: "Google",
+    answer3: "Netscape",
     solution: 3
 },
 {
 
-    text: "Question 3",
-    answer1: "g",
-    answer2: "h",
-    answer3: "i",
+    text: "Is JavaScript a front-end, back-end, or full-stack language?",
+    answer1: "Front",
+    answer2: "Back",
+    answer3: "Full",
     solution: 3
 },
 {
-    text: "Question 4",
-    answer1: "j",
-    answer2: "k",
-    answer3: "l",
+    text: "What year did Brandan Eich develop Javascript?",
+    answer1: "1975",
+    answer2: "1985",
+    answer3: "1995",
     solution: 2
 },
 {
-    text: "Question 5",
-    answer1: "m",
-    answer2: "n",
-    answer3: "o",
+    text: "What name was JavaScript developed under?",
+    answer1: "Cortado",
+    answer2: "Espresso",
+    answer3: "Mocha",
     solution: 3
 }
 ];
