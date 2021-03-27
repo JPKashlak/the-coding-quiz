@@ -6,15 +6,20 @@
     <title>The Coding Quiz!</title>
     <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <body>
 
     <header>
         <h1>THE CODING QUIZ</h1>
         <a href="highScore.html">View High Scores</a>
+        <div id="timer">
+            <span id="current-time"></span>
+        </div>
     </header>
     
 
-    <main class = "home-page" id = "home-page">
+    <main>
+
         <ul>
             <li>Click the button to begin the timed quiz.</li>
             <li>You will gain 10 points for every correct answer.</li>
@@ -22,8 +27,31 @@
             <a href="questionHub.html" id="start-btn">Start!</a>
         </ul>
    
+
+        <div id="question"></div>
+
+        <section id="answers">
+            <button class="answer-cell" id="answer1" onclick="">
+              <p class="choice-text"></p>
+            </button>
+            <button class="answer-cell" id="answer2" onclick="">
+              <p class="choice-text"></p>
+            </button>
+            <button class="answer-cell" id="answer3" onclick="">
+              <p class="choice-text"></p>
+            </button>
+        </section>
+
+        <section id="highscore">
+            <h3>High Scores!!</h3>
+            <span id="scores"></span>
+        </section>
+
     </main>
+
+
 
     <script src="./assets/script.js"></script>
 </body>
+
 </html>

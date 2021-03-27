@@ -5,65 +5,68 @@ var a3 = document.getElementById("answer3");
 var timer = document.getElementById("timer");
 
 // Questions
-var questionArray = [
+var questions = [
 {
     text: "Which of the following is NOT a JavaScript data type?",
-    answer1: "Boolean",
-    answer2: "Array",
-    answer3: "String",
-    solution: 2
+    choices: ["Boolean", "Array", "String"],
+    solution: "Array"
 },
 {
     text: "Which company developed JavaScript?",
-    answer1: "Oracle",
-    answer2: "Google",
-    answer3: "Netscape",
-    solution: 3
+    choices: ["Oracle", "Google", "Netscape"],
+    solution: "Netscape"
 },
 {
 
     text: "Is JavaScript a front-end, back-end, or full-stack language?",
-    answer1: "Front",
-    answer2: "Back",
-    answer3: "Full",
-    solution: 3
+    choices: ["Front", "Back", "Full"],
+    solution: "Full"
 },
 {
-    text: "What year did Brandan Eich develop Javascript?",
-    answer1: "1975",
-    answer2: "1985",
-    answer3: "1995",
-    solution: 2
+    text: "In what year did Brandan Eich develop Javascript?",
+    choices: ["1975", "1985", "1995"],
+    solution: "1985"
 },
 {
-    text: "What name was JavaScript developed under?",
-    answer1: "Cortado",
-    answer2: "Espresso",
-    answer3: "Mocha",
-    solution: 3
+    text: "Under what name was JavaScript developed?",
+    choices: ["Cortado", "Espresso", "Mocha"],
+    solution: "Mocha"
 }
 ];
 
 let currentQuestion = 0;
-let time = 60;
+let time = 10;
+let score = 0;
 
-function quiz() {
+function nextQuestion() {
+
     var question = questionArray[currentQuestion];
     questionSlot.innerText = question.text;
     a1.innerHTML = question.answer1;
     a2.innerHTML = question.answer2;
     a3.innerHTML = question.answer3; 
+
+    if (time <= 0) {
+        return window.location.assign("highScore.html");
+    }
+    
 }
 
+function correctIncorrect(choice) {
+    if (choice == questionArray[currentQuestion].correct){
+        score++;
+    }
 
-function beginQuiz(){
+}
+
+function beginQuiz() {
     setInterval(function() {
-      timer.innerHTML= time;
+      timer.innerHTML = time;
         time--;
     }, 
     1000); 
 
-    quiz();
+    nextQuestion();
 }
 
 
