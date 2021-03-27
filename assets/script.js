@@ -1,8 +1,11 @@
 var questionSlot = document.getElementById("question");
-var a1 = document.getElementById("answer1");
-var a2 = document.getElementById("answer2");
-var a3 = document.getElementById("answer3");
 var timer = document.getElementById("timer");
+var startBtn = document.getElementById("startBtn");
+var questionSlot = document.getElementById("questions");
+var choicesSlot = document.getElementById("choices");
+var currentQuestion = 0;
+var time = 10;
+var score = 0;
 
 // Questions
 var questions = [
@@ -34,40 +37,41 @@ var questions = [
 }
 ];
 
-let currentQuestion = 0;
-let time = 10;
-let score = 0;
 
-function nextQuestion() {
 
-    var question = questionArray[currentQuestion];
-    questionSlot.innerText = question.text;
-    a1.innerHTML = question.answer1;
-    a2.innerHTML = question.answer2;
-    a3.innerHTML = question.answer3; 
 
-    if (time <= 0) {
-        return window.location.assign("highScore.html");
-    }
+// function nextQuestion() {
+
+//     var question = questionArray[currentQuestion];
+//     questionSlot.innerText = question.text;
+//     a1.innerHTML = question.answer1;
+//     a2.innerHTML = question.answer2;
+//     a3.innerHTML = question.answer3; 
+
+//     if (time <= 0) {
+//         return window.location.assign("highScore.html");
+//     }
     
-}
+// }
 
-function correctIncorrect(choice) {
-    if (choice == questionArray[currentQuestion].correct){
-        score++;
-    }
+// function correctIncorrect(choice) {
+//     if (choice == questionArray[currentQuestion].correct){
+//         score++;
+//     }
 
-}
+// }
 
-function beginQuiz() {
-    setInterval(function() {
-      timer.innerHTML = time;
-        time--;
-    }, 
-    1000); 
+// function beginQuiz() {
+//     setInterval(function() {
+//       timer.innerHTML = time;
+//         time--;
+//     }, 
+//     1000); 
 
-    nextQuestion();
-}
+//     nextQuestion();
+// }
 
 
-beginQuiz()
+// beginQuiz()
+
+startBtn.addEventListener("click", XXXXXXX);
