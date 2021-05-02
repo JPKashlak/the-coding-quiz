@@ -1,4 +1,3 @@
-var questionSlot = document.getElementById("question");
 var timer = document.getElementById("timer");
 var startBtn = document.getElementById("startBtn");
 var scoreBtn = document.getElementById("scoreBtn");
@@ -6,6 +5,8 @@ var questionSlot = document.getElementById("questions");
 var answer1 = document.getElementById("answer1");
 var answer2 = document.getElementById("answer2");
 var answer3 = document.getElementById("answer3");
+var correctIncorrect = document.getElementById("correct-incorrect")
+
 var currentQuestion = 0;
 var time = 10;
 var score = 0;
@@ -55,11 +56,55 @@ var startQuiz = function () {
     answer1.textContent = questions[count].choices[0]
     answer2.textContent = questions[count].choices[1]
     answer3.textContent = questions[count].choices[2]
-    count = count + 1
     startBtn.style.visibility = "hidden"
     scoreBtn.style.visibility = "hidden"
 }
 
 startBtn.addEventListener("click", startQuiz);
-// End of quiz beginning ----------------------------------------
+
+
+// Check if answers are correct ---------------------------------
+var checkAnswer1 = function () {
+    if (questions[count].choices[0] === questions[count].solution) {
+        correctIncorrect.innerHTML = "Correct!"
+    }
+    else {
+        correctIncorrect.innerHTML = "Incorrect!"
+    }
+    nextQuestion();
+}
+var checkAnswer2 = function () {
+    if (questions[count].choices[1] === questions[count].solution) {
+        correctIncorrect.innerHTML = "Correct!"
+    }
+    else {
+        correctIncorrect.innerHTML = "Incorrect!"
+    }
+    nextQuestion();
+}
+var checkAnswer3 = function () {
+    if (questions[count].choices[2] === questions[count].solution) {
+        correctIncorrect.innerHTML = "Correct!"
+    }
+    else {
+        correctIncorrect.innerHTML = "Incorrect!"
+    }
+    nextQuestion();
+}
+
+answer1.addEventListener("click", checkAnswer1);
+answer2.addEventListener("click", checkAnswer2);
+answer3.addEventListener("click", checkAnswer3);
+
+// Move to next question -----------------------------
+
+var nextQuestion = function() {
+    count++
+    console.log(count)
+    questionSlot.textContent = questions[count].text
+    answer1.textContent = questions[count].choices[0]
+    answer2.textContent = questions[count].choices[1]
+    answer3.textContent = questions[count].choices[2] 
+}
+
 
