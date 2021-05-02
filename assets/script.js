@@ -6,11 +6,20 @@ var answer1 = document.getElementById("answer1");
 var answer2 = document.getElementById("answer2");
 var answer3 = document.getElementById("answer3");
 var correctIncorrect = document.getElementById("correct-incorrect")
+var results = document.getElementById("results")
+var input = document.getElementById("input")
+var initialSLot = document.getElementById("initialSlot")
+var saveBtn = document.getElementById("saveBtn")
+var scoreMessage = document.getElementById("scoreMessage")
+var scores = document.getElementById("scores")
 
 var currentQuestion = 0;
-var time = 10;
-var score = 0;
+var time = 99999;
+if (time < 0) {
+    time = 0
+}
 var count = 0
+var countdown
 
 // Quiz Questions
 var questions = [
@@ -42,22 +51,42 @@ var questions = [
     }
 ];
 
+// Timer Functionality -----------------------------------------
+function updateClock() {
+    countdown = setInterval(function() {
+        if (time > 0) {
+            time = time - 1
+            timer.textContent = time
+        }
+        else {
+            gameOver();
+        }
+    }, 1000);
+}
+
 // Default state and start quiz --------------------------------
 answer1.style.visibility = "hidden"
 answer2.style.visibility = "hidden"
 answer3.style.visibility = "hidden"
+input.style.visibility = "hidden"
+scoreMessage.style.visibility = "hidden"
 
 var startQuiz = function () {
-    console.log("Quiz Start")
+    time = 60;
+    count = 0;
+    results.textContent = ""
+    timer.style.visibility = "visible"
     answer1.style.visibility = "visible"
     answer2.style.visibility = "visible"
     answer3.style.visibility = "visible"
+    input.style.visibility = "hidden"
     questionSlot.textContent = questions[count].text
     answer1.textContent = questions[count].choices[0]
     answer2.textContent = questions[count].choices[1]
     answer3.textContent = questions[count].choices[2]
     startBtn.style.visibility = "hidden"
     scoreBtn.style.visibility = "hidden"
+    updateClock();
 }
 
 startBtn.addEventListener("click", startQuiz);
@@ -70,6 +99,8 @@ var checkAnswer1 = function () {
     }
     else {
         correctIncorrect.innerHTML = "Incorrect!"
+        time = time - 10
+        timer.textContent = time
     }
     nextQuestion();
 }
@@ -79,6 +110,8 @@ var checkAnswer2 = function () {
     }
     else {
         correctIncorrect.innerHTML = "Incorrect!"
+        time = time - 10
+        timer.textContent = time
     }
     nextQuestion();
 }
@@ -88,6 +121,8 @@ var checkAnswer3 = function () {
     }
     else {
         correctIncorrect.innerHTML = "Incorrect!"
+        time = time - 10
+        timer.textContent = time
     }
     nextQuestion();
 }
@@ -97,14 +132,50 @@ answer2.addEventListener("click", checkAnswer2);
 answer3.addEventListener("click", checkAnswer3);
 
 // Move to next question -----------------------------
-
 var nextQuestion = function() {
     count++
-    console.log(count)
-    questionSlot.textContent = questions[count].text
-    answer1.textContent = questions[count].choices[0]
-    answer2.textContent = questions[count].choices[1]
-    answer3.textContent = questions[count].choices[2] 
+    if (count === 5) {
+        gameOver();
+    }
+    else {
+        questionSlot.textContent = questions[count].text
+        answer1.textContent = questions[count].choices[0]
+        answer2.textContent = questions[count].choices[1]
+        answer3.textContent = questions[count].choices[2] 
+    }
 }
+
+// Endgame -------------------------------------------
+var gameOver = function() {
+    clearInterval(countdown)
+    answer1.style.visibility = "hidden"
+    answer2.style.visibility = "hidden"
+    answer3.style.visibility = "hidden"
+    results.textContent = "FINAL SCORE: " + time
+    timer.style.visibility = "hidden"
+    questionSlot.textContent = "Quiz Complete!!"
+    startBtn.style.visibility = "visible"
+    startBtn.textContent = "Play Again?"
+    scoreBtn.style.visibility = "visible"
+    scoreBoard()
+}
+
+var scoreBoard = function() {
+    input.style.visibility = "visible"
+    correctIncorrect.innerHTML = ""
+    alert("You earned " + time + " points! Leave your initials for the scoreboard!")
+}
+
+var saveScore = function() {
+    input.style.visibility = "hidden"
+    scoreMessage.style.visibility = "visible"
+    console.log(initialSLot.value)
+
+    var score = document.createElement("li")
+    score.textContent = initialSLot.value + ": " + time
+    scores.appendChild(score);
+}
+
+saveBtn.addEventListener("click", saveScore);
 
 

@@ -17,8 +17,8 @@
     <div>
         <ul>
             <li>Click the button to begin the timed quiz.</li>
-            <li>You will gain 10 points for every correct answer.</li>
             <li>You will lose 10 seconds for every incorrect answer.</li>
+            <li>Your final score will be your remaining time.</li>
         </ul>
     </div>
 <br>
@@ -29,15 +29,23 @@
             <button type="button" id="answer2"></button>
             <button type="button" id="answer3"></button>
         </div>
+
+        <button id="startBtn">Start Quiz</button>
+        <button id="scoreBtn">View High Scores</button>
+       
         <p id="correct-incorrect"></p>
         <span id="timer"></span>
-        <span id="scores"></span>
-        <form id="results"></form>
-
-        <div id="buttons">
-            <button id="startBtn">Start Quiz</button>
-            <button id="scoreBtn">View High Scores</button>
+        <span id="results"></span>
+        <br>
+        <span id="scoreMessage">Score Submitted!</span>
+        <div id="input">
+            <p>Please input your initials to save your score:</p>
+            <br>
+            <input id="initialSlot"></input>
+            <button type="button" id="saveBtn">Save Score</button>
         </div>
+        <ul id="scores"></ul>
+
     </section>
 
 
