@@ -14,29 +14,32 @@
     </header>
     
 
-    <main>
-
+    <div>
         <ul>
             <li>Click the button to begin the timed quiz.</li>
             <li>You will gain 10 points for every correct answer.</li>
             <li>You will lose 10 seconds for every incorrect answer.</li>
         </ul>
-   
-        <section id="quiz">
-            <input id="view-scores" type="button" value="View Scores">
+    </div>
+<br>
+    <section id="quiz-box">
+        <div id="questions"></div>
+        <div>
+            <button type="button" id="answer1"></button>
+            <button type="button" id="answer2"></button>
+            <button type="button" id="answer3"></button>
+        </div>
+        <span class="correct-incorrect"></span>
+        <span id="timer"></span>
+        <span id="scores"></span>
+        <form id="results"></form>
 
-            <span id="timer"></span>
-            <span id="scores"></span>
-            <div id="questions"></div>
-            <span id="choices"></span>
+        <div id="buttons">
+            <button id="startBtn">Start Quiz</button>
+            <button id="scoreBtn">View High Scores</button>
+        </div>
+    </section>
 
-            <form id="results"></form>
-            <div id="buttons">
-            <input id="startBtn" type="button" value="Start Quiz">
-
-            </div>
-        </section>
-    </main>
 
 
 
