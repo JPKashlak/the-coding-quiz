@@ -17,6 +17,11 @@ ul {
 #answerBtns {
     margin-top: 10px;
 }
+#questions {
+    font-size: x-large;
+    font-weight: bold;
+    color: hotpink;
+}
 #startBtn {
     color: white;
     background-color: rgb(43, 80, 6);
