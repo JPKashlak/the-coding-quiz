@@ -9,7 +9,8 @@ var input = document.getElementById("input")
 var initialSLot = document.getElementById("initialSlot")
 var saveBtn = document.getElementById("saveBtn")
 var scoreMessage = document.getElementById("scoreMessage")
-var scores = document.getElementById("scores")
+var scoreList = document.getElementById("scores")
+var scores = []
 
 var currentQuestion = 0;
 var time = 99999;
@@ -166,12 +167,19 @@ var scoreBoard = function() {
 var saveScore = function() {
     input.style.visibility = "hidden"
     scoreMessage.style.visibility = "visible"
-    console.log(initialSLot.value)
+    console.log(initialSlot.value)
 
     var score = document.createElement("li")
-    score.textContent = initialSLot.value + ": " + time
-    scores.appendChild(score);
+
+    score.textContent = initialSlot.value + ": " + time
+    scoreList.appendChild(score);
+    
 }
+
+var loadScores = function() {
+    scores.value(localStorage.getItem('savedScores'))
+}
+
 
 saveBtn.addEventListener("click", saveScore);
 
