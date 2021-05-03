@@ -4,25 +4,45 @@ header h1 {
     font-size: 40px;
     text-align: center;
 }
-main {
-    display: flex;
-    justify-content: center;
+ul {
+    list-style: none;
 }
-main button {
-    color: whitesmoke;
-    background-color: teal;
-    border-radius: 10%;
-    font-size: 25px;
+#rules {
+    text-align: center;
+    font-weight: bold;
 }
-main button:hover {
-    background-color: rgb(10, 190, 166);
-} 
-#quiz {
-    display: grid;
-    grid-row: 6;
-    grid-column: 1;
-    gap: 10px;
+#rules li {
+    padding: 5px;
 }
-.answerButton {
-    /* display: none; */
+#answerBtns {
+    margin-top: 10px;
+}
+#startBtn {
+    color: white;
+    background-color: rgb(43, 80, 6);
+    border: none;
+    font-size: x-large;
+}
+#startBtn:hover {
+    background-color: rgb(110, 204, 16);
+}
+
+.answer {
+    color: white;
+    background-color: rgb(19, 70, 179);
+    border: none;
+    font-size: x-large; 
+}
+.answer:hover {
+
+    background-color: rgb(110, 204, 16);
+}
+#quiz-box {
+    text-align: center; 
+}
+#correct-incorrect {
+    font-size: 35px;
+}
+#timer {
+    font-size: xx-large;
 }

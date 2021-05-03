@@ -1,12 +1,10 @@
 var timer = document.getElementById("timer");
 var startBtn = document.getElementById("startBtn");
-var scoreBtn = document.getElementById("scoreBtn");
 var questionSlot = document.getElementById("questions");
 var answer1 = document.getElementById("answer1");
 var answer2 = document.getElementById("answer2");
 var answer3 = document.getElementById("answer3");
 var correctIncorrect = document.getElementById("correct-incorrect")
-var results = document.getElementById("results")
 var input = document.getElementById("input")
 var initialSLot = document.getElementById("initialSlot")
 var saveBtn = document.getElementById("saveBtn")
@@ -73,6 +71,7 @@ scoreMessage.style.visibility = "hidden"
 
 var startQuiz = function () {
     time = 60;
+    timer.textContent = time
     count = 0;
     results.textContent = ""
     timer.style.visibility = "visible"
@@ -80,12 +79,12 @@ var startQuiz = function () {
     answer2.style.visibility = "visible"
     answer3.style.visibility = "visible"
     input.style.visibility = "hidden"
+    scoreMessage.style.visibility = "hidden"
     questionSlot.textContent = questions[count].text
     answer1.textContent = questions[count].choices[0]
     answer2.textContent = questions[count].choices[1]
     answer3.textContent = questions[count].choices[2]
     startBtn.style.visibility = "hidden"
-    scoreBtn.style.visibility = "hidden"
     updateClock();
 }
 
@@ -145,18 +144,16 @@ var nextQuestion = function() {
     }
 }
 
-// Endgame -------------------------------------------
+// Endgame and Score -------------------------------------------
 var gameOver = function() {
     clearInterval(countdown)
     answer1.style.visibility = "hidden"
     answer2.style.visibility = "hidden"
     answer3.style.visibility = "hidden"
-    results.textContent = "FINAL SCORE: " + time
     timer.style.visibility = "hidden"
     questionSlot.textContent = "Quiz Complete!!"
     startBtn.style.visibility = "visible"
     startBtn.textContent = "Play Again?"
-    scoreBtn.style.visibility = "visible"
     scoreBoard()
 }
 
@@ -177,5 +174,6 @@ var saveScore = function() {
 }
 
 saveBtn.addEventListener("click", saveScore);
+
 
 
